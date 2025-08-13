@@ -9,3 +9,11 @@ class Solution {
         return pow(n/4);
     }
 }
+
+/* 
+
+        if(n==1) return true;
+        else if(n<=0) return false;
+        return isPowerOfFour((double)n/4);
+
+*/
