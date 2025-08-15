@@ -1,21 +1,15 @@
-import java.util.*;
-
 class Solution {
-    Map<Integer, List<Integer>> mp;
-    Random rand;
 
-    public Solution(int[] nums) {
-        mp = new HashMap<>();
-        rand = new Random();
-        for (int i = 0; i < nums.length; i++) {
-            mp.computeIfAbsent(nums[i], k -> new ArrayList<>()).add(i);
-        }
+    private Random rand = new Random();
+    private int[] a;
+
+    public Solution(int[] a) {
+        this.a = a;
     }
     
     public int pick(int target) {
-        List<Integer> indices = mp.get(target);
-        int idx = rand.nextInt(indices.size());
-        return indices.get(idx);
+        int index = rand.nextInt(a.length);
+        return a[index] == target ? index : pick(target);
     }
 }
 
