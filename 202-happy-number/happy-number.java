@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 class Solution {
     public boolean isHappy(int n) {
         
