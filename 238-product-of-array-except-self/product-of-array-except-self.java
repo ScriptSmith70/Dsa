@@ -2,6 +2,30 @@ class Solution {
     public int[] productExceptSelf(int[] nums) {
         int n = nums.length;
         int[] ans = new int[n];
+
+        // prefix pass (from left to right)
+        ans[0] = 1;
+        for (int i = 1; i < n; i++) {
+            ans[i] = ans[i - 1] * nums[i - 1];
+        }
+
+        // suffix pass (from right to left, using one variable)
+        int suffix = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            ans[i] *= suffix;
+            suffix *= nums[i];
+        }
+
+        return ans;
+    }
+}
+
+
+
+/* class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
         
         int product = 1;
         int zeroCount = 0;
@@ -33,3 +57,5 @@ class Solution {
         return ans;
     }
 }
+
+*/
